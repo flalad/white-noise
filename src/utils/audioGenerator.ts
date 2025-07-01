@@ -13,7 +13,7 @@ export class AudioGenerator {
   // 音频文件映射
   private audioFiles: Record<string, string> = {
     // 雨声音频文件
-    'rain-gentle': '/一场温柔的雨_耳聆网_[声音ID：22056].wav',
+    'rain-gentle': '/gentle-rain.wav',
     'rain-chill': '/chill-rain-patreon-sample-364447.mp3',
     'rain-soft': '/lluvia-suave-314513.mp3',
     'rain-window': '/rain-drops-on-window-green-noise-mix-231100.mp3',
