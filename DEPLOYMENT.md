@@ -93,15 +93,20 @@ wrangler pages deploy out --project-name=white-noise
 
 ### 常见问题
 
-1. **音频文件无法播放**
+1. **Vercel 部署错误：Function Runtimes must have a valid version**
+   - 这是 vercel.json 配置问题，已在最新版本中修复
+   - 确保使用简化的 vercel.json 配置
+   - 删除不必要的 functions 和 buildCommand 配置
+
+2. **音频文件无法播放**
    - 检查浏览器控制台是否有 CORS 错误
    - 确认音频文件路径正确
 
-2. **构建失败**
+3. **构建失败**
    - 检查 Node.js 版本是否为 18+
    - 确认所有依赖都已正确安装
 
-3. **静态导出问题**
+4. **静态导出问题**
    - 确保没有使用服务端特有的 API
    - 检查是否有动态路由需要预渲染
 

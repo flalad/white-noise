@@ -74,6 +74,12 @@
 
 ## 🔧 常见问题排查
 
+### Vercel 部署问题
+- [ ] 如果遇到 "Function Runtimes must have a valid version" 错误：
+  - [ ] 检查 vercel.json 配置是否正确
+  - [ ] 确保没有不必要的 functions 配置
+  - [ ] 使用简化的 vercel.json 配置
+
 ### 音频文件无法播放
 - [ ] 检查浏览器控制台是否有 CORS 错误
 - [ ] 确认音频文件路径正确
