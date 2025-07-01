@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Sparkles, RotateCcw, Play, Pause } from 'lucide-react';
 
@@ -11,30 +11,12 @@ export function DigitalWoodenFish() {
   const [isAutoTapping, setIsAutoTapping] = useState(false);
   const [autoTapInterval, setAutoTapInterval] = useState<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    if (isAutoTapping) {
-      const interval = setInterval(() => {
-        handleTap();
-      }, 1000);
-      setAutoTapInterval(interval);
-    } else if (autoTapInterval) {
-      clearInterval(autoTapInterval);
-      setAutoTapInterval(null);
-    }
-
-    return () => {
-      if (autoTapInterval) {
-        clearInterval(autoTapInterval);
-      }
-    };
-  }, [isAutoTapping, autoTapInterval]);
-
   const merits = [
     '功德+1', '心静如水', '福慧双修', '善念增长',
     '业障消除', '智慧开启', '慈悲心起', '清净自在'
   ];
 
-  const handleTap = () => {
+  const handleTap = useCallback(() => {
     setCount(prev => prev + 1);
     setIsAnimating(true);
     setShowMerit(true);
@@ -46,7 +28,30 @@ export function DigitalWoodenFish() {
     setTimeout(() => {
       setShowMerit(false);
     }, 1500);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (isAutoTapping) {
+      const interval = setInterval(handleTap, 1000);
+      setAutoTapInterval(interval);
+      
+      return () => {
+        clearInterval(interval);
+      };
+    } else if (autoTapInterval) {
+      clearInterval(autoTapInterval);
+      setAutoTapInterval(null);
+    }
+  }, [isAutoTapping, handleTap]);
+
+  // 清理函数，在组件卸载时清理定时器
+  useEffect(() => {
+    return () => {
+      if (autoTapInterval) {
+        clearInterval(autoTapInterval);
+      }
+    };
+  }, [autoTapInterval]);
 
   const resetCount = () => {
     setCount(0);
