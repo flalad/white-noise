@@ -10,7 +10,7 @@ interface AnimatedSceneProps {
 }
 
 export function AnimatedScene({ onThemeToggle }: AnimatedSceneProps) {
-  const { theme, toggleTheme, isDark } = useTheme();
+  const { toggleTheme, isDark } = useTheme();
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleToggleMode = () => {

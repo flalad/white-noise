@@ -29,12 +29,31 @@ npm run dev
 ### 构建生产版本
 
 ```bash
-# 构建项目
-npm run build
+# 构建项目（Vercel 部署）
+npm run build:vercel
+
+# 构建静态版本（Cloudflare Pages 部署）
+npm run build:static
 
 # 启动生产服务器
 npm start
 ```
+
+## 🌐 部署
+
+本项目支持部署到多个平台：
+
+### Vercel 部署
+- 自动检测 Next.js 项目
+- 支持服务端渲染
+- 使用 `npm run build:vercel` 构建
+
+### Cloudflare Pages 部署
+- 静态站点部署
+- 全球 CDN 加速
+- 使用 `npm run build:static` 构建
+
+详细部署说明请查看 [DEPLOYMENT.md](./DEPLOYMENT.md)
 
 ## ⌨️ 键盘快捷键
 

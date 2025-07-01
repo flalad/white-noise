@@ -36,6 +36,23 @@ yarn-error.log*
 # vercel
 .vercel
 
+# cloudflare
+.wrangler/
+wrangler.toml
+
+# deployment
+.env.local
+.env.production
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db

@@ -152,7 +152,7 @@ export default function Home() {
     isPresetActive
   } = useAudioManager();
 
-  const { theme, toggleTheme, autoSwitchTheme, isDark } = useTheme();
+  const { toggleTheme, autoSwitchTheme, isDark } = useTheme();
 
   const playingSounds = getPlayingSounds();
 

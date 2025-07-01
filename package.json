@@ -5,9 +5,14 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:static": "cross-env BUILD_MODE=static next build",
+    "build:vercel": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build"
+    "export": "cross-env BUILD_MODE=static next build",
+    "deploy:vercel": "node scripts/deploy.js vercel",
+    "deploy:cloudflare": "node scripts/deploy.js cloudflare",
+    "deploy:both": "node scripts/deploy.js both"
   },
   "dependencies": {
     "framer-motion": "^12.19.1",
@@ -22,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "tailwindcss": "^4",

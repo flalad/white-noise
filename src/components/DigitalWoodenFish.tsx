@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Sparkles, RotateCcw, Play, Pause } from 'lucide-react';
 
@@ -10,7 +10,6 @@ export function DigitalWoodenFish() {
   const [showMerit, setShowMerit] = useState(false);
   const [isAutoTapping, setIsAutoTapping] = useState(false);
   const [autoTapInterval, setAutoTapInterval] = useState<NodeJS.Timeout | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (isAutoTapping) {
@@ -28,7 +27,7 @@ export function DigitalWoodenFish() {
         clearInterval(autoTapInterval);
       }
     };
-  }, [isAutoTapping]);
+  }, [isAutoTapping, autoTapInterval]);
 
   const merits = [
     '功德+1', '心静如水', '福慧双修', '善念增长',
@@ -83,9 +82,10 @@ export function DigitalWoodenFish() {
               onClick={handleTap}
               className="w-16 h-12 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-amber-200 relative overflow-hidden group flex items-center justify-center"
             >
-              <img 
-                src="/wooden-fish.svg" 
-                alt="木鱼" 
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/wooden-fish.svg"
+                alt="木鱼"
                 className="w-8 h-8 opacity-80"
               />
               <motion.div
