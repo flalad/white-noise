@@ -40,7 +40,8 @@ vercel --prod
 3. 点击 "Create a project"
 4. 连接你的 GitHub 仓库
 5. 设置构建配置：
-   - **构建命令**: `npm run build:static`
+   - **框架预设**: `Next.js (Static HTML Export)`
+   - **构建命令**: `npm run build:cloudflare`
    - **构建输出目录**: `out`
    - **Node.js 版本**: `18`
 6. 点击 "Save and Deploy"
@@ -55,7 +56,7 @@ npm install -g wrangler
 wrangler login
 
 # 构建项目
-npm run build:static
+npm run build:cloudflare
 
 # 部署到 Cloudflare Pages
 wrangler pages deploy out --project-name=white-noise
@@ -98,15 +99,25 @@ wrangler pages deploy out --project-name=white-noise
    - 确保使用简化的 vercel.json 配置
    - 删除不必要的 functions 和 buildCommand 配置
 
-2. **音频文件无法播放**
+2. **Cloudflare Pages 部署错误：Files up to 25 MiB in size**
+   - 单个文件不能超过 25MB
+   - 运行 `npm run optimize-assets` 检查和处理大文件
+   - 使用音频压缩工具减小文件大小
+   - 考虑使用外部 CDN 托管大文件
+
+3. **Node.js 内置模块警告**
+   - 在 webpack 配置中添加了 fallback 设置
+   - 这些警告不会影响部署，但已通过配置优化解决
+
+4. **音频文件无法播放**
    - 检查浏览器控制台是否有 CORS 错误
    - 确认音频文件路径正确
 
-3. **构建失败**
+5. **构建失败**
    - 检查 Node.js 版本是否为 18+
    - 确认所有依赖都已正确安装
 
-4. **静态导出问题**
+6. **静态导出问题**
    - 确保没有使用服务端特有的 API
    - 检查是否有动态路由需要预渲染
 

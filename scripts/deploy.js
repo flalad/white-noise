@@ -67,7 +67,7 @@ async function deployToCloudflare() {
   }
   
   // 构建项目
-  runCommand('npm run build:static', '构建静态版本');
+  runCommand('npm run build:cloudflare', '构建 Cloudflare Pages 版本');
   
   // 检查输出目录
   if (!fs.existsSync('out')) {

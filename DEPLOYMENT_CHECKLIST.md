@@ -32,7 +32,8 @@
 - [ ] 进入 Pages 部分
 - [ ] 连接 GitHub 仓库
 - [ ] 确认构建设置：
-  - [ ] 构建命令：`npm run build:static`
+  - [ ] 框架预设：`Next.js (Static HTML Export)`
+  - [ ] 构建命令：`npm run build:cloudflare`
   - [ ] 输出目录：`out`
   - [ ] Node.js 版本：`18`
 - [ ] 点击部署
@@ -79,6 +80,14 @@
   - [ ] 检查 vercel.json 配置是否正确
   - [ ] 确保没有不必要的 functions 配置
   - [ ] 使用简化的 vercel.json 配置
+
+### Cloudflare Pages 部署问题
+- [ ] 如果遇到 "Files up to 25 MiB in size" 错误：
+  - [ ] 运行 `npm run optimize-assets` 检查大文件
+  - [ ] 压缩或移除超过 25MB 的文件
+  - [ ] 考虑使用外部 CDN 托管大文件
+- [ ] 如果遇到 Node.js 内置模块警告：
+  - [ ] 这些警告不影响部署，已通过 webpack 配置优化
 
 ### 音频文件无法播放
 - [ ] 检查浏览器控制台是否有 CORS 错误

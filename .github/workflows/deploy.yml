@@ -49,7 +49,7 @@ jobs:
         run: npm ci
       
       - name: Build for Cloudflare Pages
-        run: npm run build:static
+        run: npm run build:cloudflare
       
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1

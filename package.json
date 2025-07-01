@@ -10,6 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "export": "cross-env BUILD_MODE=static next build",
+    "optimize-assets": "node scripts/optimize-assets.js",
+    "build:cloudflare": "npm run optimize-assets && npm run build:static",
     "deploy:vercel": "node scripts/deploy.js vercel",
     "deploy:cloudflare": "node scripts/deploy.js cloudflare",
     "deploy:both": "node scripts/deploy.js both"

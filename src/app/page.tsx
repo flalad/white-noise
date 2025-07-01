@@ -45,7 +45,7 @@ const sounds: SoundItem[] = [
     icon: <Cloud className="w-8 h-8" />,
     color: 'from-blue-100 to-blue-200 border-blue-300',
     description: '一场温柔的雨，带来内心的宁静',
-    audioUrl: '/一场温柔的雨_耳聆网_[声音ID：22056].wav'
+    audioUrl: '/chill-rain-patreon-sample-364447.mp3'
   },
   {
     id: 'rain-chill',
